@@ -95,13 +95,17 @@ function draw() {
   }
   if(two.mouse.presses())
   {
-    /*if(opt1=="Come back tomorrow")
+    if(opt1=="Come back tomorrow")
     {
-      scene=2
-    }*/
+      scene=5
+    }
     if(opt1=="Talk to Lucy")
     {
       scene=25
+    }
+    if(opt1="Confront\nArrest Bob")
+    {
+      scene=375
     }
     else
     {
@@ -172,9 +176,9 @@ function sceneChanger()
   else if (scene==25)
   {
     textAlign(CENTER)
-    text("You see Lucy and walk up to her.\n You ask her if she knows anything about the murder ",200,50)
-    opt1="Come back tomorrow"
-    opt2="What is Bob\n doing here?"
+    text("You see Lucy and walk up to her.\n You ask her if she knows anything about\n the murder. She says 'Oh I don't know,\n haven't been thinking about it much\n I'm still saddened my ex-husband leaving\n me after he lost his job. If I had \nto guess, it's probably Old Man Bob\n He always goes on 'nightly walks' \n why would an old man walk by a\n scary place at NIGHT?' ",200,50)
+    opt1="Confront\nArrest Bob"
+    opt2="Ask about\n Ex husband"
   }
   else if(scene==75)
   {
