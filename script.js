@@ -15,12 +15,15 @@ let opt2=" ";
 
 //pictures
 let startB;
+let optButton
 
 
 
 /* PRELOAD LOADS FILES */
 function preload(){
   startB = loadImage("assets/startButton.png")
+  optButton=loadImage("assets/optButton.png")
+  
 }
 
 /* SETUP RUNS ONCE */
@@ -32,13 +35,15 @@ function setup() {
   sidePic.pos = {x:-400,y:-400}
 
   //right button
-  two = new Sprite (width/2+140,height/2+120,160,50,"s")
+  two = new Sprite (optButton,width/2+140,height/2+120,160,50,"s")
   two.pos = {x:-1400,y:-1400}
   two.textSize="15"
+
+  optButton.resize(260,200)
  
 
   //left button
-  one = new Sprite (width/2-140,height/2+120,160,50,"s")
+  one = new Sprite (optButton,width/2-140,height/2+120,160,50,"s")
   one.pos = {x:-600,y:-600}
   one.textSize="15"
 
@@ -108,6 +113,10 @@ function draw() {
     {
       scene=375
     }
+    else if(opt1=="Leave to find\n more evidence")
+      {
+        scene=30
+      }
     else//next scene
     {
     scene++
@@ -216,7 +225,7 @@ function sceneChanger()
   {
     textAlign(CENTER)
       text("You've never seen this man before\n so you ask for his ID for \n more info about him.'Oh, I left this town\n for a while. Been traveling the world\n and such ' He give you his ID\n (shown on the right).\n I'd show you pictures but I lost my bag at home\n Now if you'll excuse me, I'm in \n the middle of a conversation",200,50)
-    opt1="Leave \n for more evidence"
+    opt1="Leave to find\n more evidence"
     opt2="Arrest \n Jack"
   }
   else if(scene==150)
@@ -230,6 +239,10 @@ function sceneChanger()
   else if(scene==625)
   {
     youLose()
+  }
+  else if(scene==630)
+  {
+    youWin()
   }
   
 }
@@ -277,5 +290,20 @@ function youLose()
   }
  
   
+}
+
+function youWin()
+{
+  //hides options and sidepic
+  sidePic.pos = {x:-250,y:-900}
+  one.pos ={x:-700,y:-700}
+  two.pos = {x:-1999,y:-2000}
+  ending.pos = {x:width/2,y:height/2+130}
+  if(scene==4)
+    
+    textAlign(CENTER)
+  textSize(16)
+    text("You arrested Jack. He's shocked by your actions.\n He swears he did nothing wrong, but you beg to differ.\n All clues point to Jack unfortunately.\n He is tried in court and he admits\n to luring people to the hospital to\n kill them. 'They fired me from that hospital 2 months\n before they closed down.'said Jack. 'They said they got reports \n of me being too 'crazy' to care for patients\n So I showed this town how crazy I\n can be. Oh and traveling is just my side hobby :3'\n You don't remember caring bout his side hobby.\n Anyways, GOOD JOB. You did it detective. You got a raise.",width/2,height/2-167)
+    
 }
 
